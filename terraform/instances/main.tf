@@ -105,3 +105,13 @@ resource "aws_eip" "static_eip" {
     }
   )
 }
+
+
+
+#Amazon ECR
+
+resource "aws_ecr_repository" "my_ecr_repository" {
+  name = "clo835-ecr-assignment1"  # 
+
+   image_tag_mutability = "IMMUTABLE"
+}
