@@ -45,7 +45,7 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:myapp_$IMAGE_TAG -f Dockerfile .
 
         # command to push application image
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:app_$IMAGE_TAG
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:myapp_$IMAGE_TAG
        
 
           
