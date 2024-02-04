@@ -91,17 +91,6 @@ resource "aws_security_group" "my_sg" {
   )
 }
 
-# Elastic IP
-resource "aws_eip" "static_eip" {
-  instance = aws_instance.my_amazon.id
-  tags = (
-    {
-      "Name" = "${local.name_prefix}-eip"
-    }
-  )
-}
-
-
 
 #Amazon ECR
 
