@@ -17,6 +17,10 @@ variable "env" {
   description = "Deployment Environment"
 }
 
-
+variable "assignment" {
+  default     = "assignment1"
+  type        = string
+  description = "Project"
+}
 
 
