@@ -124,4 +124,4 @@ resource "aws_ecr_repository" "my_ecr_repository" {
 }
 
 
-# Running ec2
+# Running ec2 for recording
