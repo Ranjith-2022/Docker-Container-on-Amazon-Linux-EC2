@@ -64,7 +64,7 @@ resource "aws_key_pair" "my_key" {
 # Security Group
 resource "aws_security_group" "my_sg" {
   name        = "allow_ssh"
-  description = "Allow SSH inbound traffic"
+  description = "Allow SSH and custom ports inbound traffic"
   vpc_id      = data.aws_vpc.default.id
 
   ingress {
@@ -76,6 +76,30 @@ resource "aws_security_group" "my_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
+  ingress {
+    description = "Custom TCP port 8081"
+    from_port   = 8081
+    to_port     = 8081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP port 8082"
+    from_port   = 8082
+    to_port     = 8082
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP port 8083"
+    from_port   = 8083
+    to_port     = 8083
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port        = 0
     to_port          = 0
@@ -84,12 +108,11 @@ resource "aws_security_group" "my_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = (
-    {
-      "Name" = "${local.name_prefix}-sg"
-    }
-  )
+  tags = {
+    "Name" = "${local.name_prefix}-sg"
+  }
 }
+
 
 
 #Amazon ECR
@@ -97,6 +120,6 @@ resource "aws_security_group" "my_sg" {
 resource "aws_ecr_repository" "my_ecr_repository" {
   name = "clo835-ecr-assignment1" # 
 
-  image_tag_mutability = "IMMUTABLE"
+  image_tag_mutability = "MUTABLE"
 }
 
