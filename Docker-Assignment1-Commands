@@ -1,0 +1,62 @@
+Docker Installation 
+
+sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl status docker
+
+Access 
+
+sudo chmod 666 /var/run/docker.sock
+sudo usermod -a -G docker ec2-user
+aws configure
+sudo vi ~/.aws/credentials
+
+Docker Pull
+
+docker pull uri
+
+Docker create and run
+
+Database
+
+docker network create -d bridge ranjith-network
+
+docker run -d  --network  ranjith-network -e MYSQL_ROOT_PASSWORD=pw uri
+
+docker inspect <container_id>
+
+export DBHOST=172.18.0.2
+export DBPORT=3306
+export DBUSER=root
+export DATABASE=employees
+export DBPWD=pw
+export APP_COLOR=blue
+
+APP
+
+docker run -p 8081:8080 --name blue --network=ranjith-network -e APP_COLOR=$APP_COLOR -e DBHOST=$DBHOST -e DBPORT=$DBPORT -e DBUSER=$DBUSER -e DBPWD=$DBPWD [uri]
+
+
+export APP_COLOR=pink
+
+docker run -p 8082:8080 --name pink --network=ranjith-network -e APP_COLOR=$APP_COLOR -e DBHOST=$DBHOST -e DBPORT=$DBPORT -e DBUSER=$DBUSER -e DBPWD=$DBPWD uri
+export APP_COLOR=lime
+
+
+docker run -p 8083:8080 --name lime --network=ranjith-network -e APP_COLOR=$APP_COLOR -e DBHOST=$DBHOST -e DBPORT=$DBPORT -e DBUSER=$DBUSER -e DBPWD=$DBPWD uri
+
+
+Database access
+
+docker exec -it (container name) /bin/bash
+mysql -u root -p employees
+select * from employee;
+
+Ping 
+
+docker exec -it blue /bin/bash
+apt-get update
+apt-get install iputils-ping
+
+
