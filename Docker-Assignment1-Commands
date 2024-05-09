@@ -1,3 +1,5 @@
+
+
 Docker Installation 
 
 sudo yum update -y
@@ -9,10 +11,26 @@ Access
 
 sudo chmod 666 /var/run/docker.sock
 sudo usermod -a -G docker ec2-user
+
+Configure AWS keys
+
 aws configure
 sudo vi ~/.aws/credentials
 
-Docker Pull
+Add GIT Secrets
+
+
+Terraform 
+
+terraform init
+terraform plan
+terraform apply -auto-approve
+
+Once the image is pushed to ECR 
+
+
+
+Docker Pull 
 
 docker pull uri
 
