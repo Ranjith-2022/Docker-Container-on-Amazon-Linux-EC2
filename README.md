@@ -24,7 +24,7 @@ sudo usermod -a -G docker ec2-user
 aws configure
 sudo vi ~/.aws/credentials
 ```
-## Step 4: Configure AWS Keys
+## Step 4: Add GIT Secrets in Your GitHub
 
 <img width="596" alt="GitHub Secrets" src="https://github.com/Ranjith-2022/clo835-assignment1/assets/114111480/0e029200-4c03-4f91-8660-deac6b6c2c94">
 
