@@ -1,5 +1,34 @@
 # Docker Container on Amazon Linux EC2
 
+## Architecture
+
+
+![image](https://github.com/Ranjith-2022/clo835-assignment1/assets/114111480/69aeb190-5e97-4d91-95c3-d2f343fffc73)
+
+## Overview
+
+
+The objective of this assignment is to deploy a two-tiered web application with web and database components running as containers on Amazon EC2. The application will be hosted on AWS EC2 instances deployed into a public subnet in the default VPC for simplicity in debugging.
+
+This assignment comprises three main parts:
+
+1. **Configuring GitHub Actions**: Automatically build and publish container images. Both the application and MySQL DB images should be published to Amazon ECR.
+
+2. **Running Web Application Instances**: Deploy three instances of the web application on Amazon EC2.
+
+3. **Updating and Re-deploying the Application**: Manage updates to the application code and re-deploy it on Amazon EC2.
+
+## Tools and Services Used
+
+- **GitHub Actions**: Create Docker images and push them to Amazon ECR automatically.
+- **Amazon ECR**: Securely store your container images.
+- **Cloud9 IDE** : Develop application and build container images.
+- **Docker CLI**: Work with Docker containers.
+- **AWS EC2**: Host your containerized application.
+- **AWS IAM** (Identity and Access Management): Grant EC2 instance access to Amazon ECR.
+- **Terraform**: Deploy the required infrastructure.
+
+
 ## Step 1: Docker Installation on Cloud9
 
 ### Docker Installation
