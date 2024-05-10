@@ -1,8 +1,3 @@
-Docker container on Amazon Linux EC2
-
-
-step 1: Docker installation on cloud 9 
-
 Docker Installation 
 
 sudo yum update -y
@@ -10,39 +5,16 @@ sudo yum install docker -y
 sudo systemctl start docker
 sudo systemctl status docker
 
-Step 2: configuring Access
+Access 
 
 sudo chmod 666 /var/run/docker.sock
 sudo usermod -a -G docker ec2-user
-
-Step 3: Configure AWS keys
-
 aws configure
 sudo vi ~/.aws/credentials
 
-Step 4 :Add GIT Secrets in yor git hub
+Docker Pull
 
-[Screenshot]
-
-
-Step 5: Terraform Configuration
-
-move to terraform folder and generate assignment1 key pair file using below command
-
-ssh-keygen -t rsa assignment1
-
-terraform init
-terraform plan
-terraform apply -auto-approve
-
-Step 6: Pull image from Amazon ECR
-
-One the image successfully pushed from github to Amazon ecr clo835-ecr-assignment1
-
-Docker login
-
-docker pull db uri
-docker pull App uri
+docker pull uri
 
 Docker create and run
 
@@ -86,5 +58,3 @@ Ping
 docker exec -it blue /bin/bash
 apt-get update
 apt-get install iputils-ping
-
-
