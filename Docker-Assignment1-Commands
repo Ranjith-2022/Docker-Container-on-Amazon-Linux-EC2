@@ -1,4 +1,7 @@
+Docker container on Amazon Linux EC2
 
+
+step 1: Docker installation on cloud 9 
 
 Docker Installation 
 
@@ -7,20 +10,20 @@ sudo yum install docker -y
 sudo systemctl start docker
 sudo systemctl status docker
 
-Access 
+Step 2: configuring Access
 
 sudo chmod 666 /var/run/docker.sock
 sudo usermod -a -G docker ec2-user
 
-Configure AWS keys
+Step 3: Configure AWS keys
 
 aws configure
 sudo vi ~/.aws/credentials
 
-Add GIT Secrets
+Step 4 :Add GIT Secrets in yor git hub
 
 
-Terraform 
+Step 5: Terraform 
 
 terraform init
 terraform plan
