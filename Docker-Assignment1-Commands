@@ -25,19 +25,24 @@ Step 4 :Add GIT Secrets in yor git hub
 [Screenshot]
 
 
-Step 5: Terraform 
+Step 5: Terraform Configuration
+
+move to terraform folder and generate assignment1 key pair file using below command
+
+ssh-keygen -t rsa assignment1
 
 terraform init
 terraform plan
 terraform apply -auto-approve
 
-Once the image is pushed to ECR 
+Step 6: Pull image from Amazon ECR
 
+One the image successfully pushed from github to Amazon ecr clo835-ecr-assignment1
 
+Docker login
 
-Docker Pull 
-
-docker pull uri
+docker pull db uri
+docker pull App uri
 
 Docker create and run
 
